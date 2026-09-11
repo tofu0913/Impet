@@ -64,10 +64,7 @@ function hasBuff(buffname)
 end
 
 ActionPacket.open_listener(function(act)
-	if not hasBuff('インピタス') then
-		widgets.count.text = ''
-		widgets.hit.text = ''
-	else
+	if hasBuff('インピタス') then
 		local actionpacket = ActionPacket.new(act)
 		local category = actionpacket:get_category_string()
 		-- log(windower.ffxi.get_mob_by_id(actionpacket:get_id()).name..' '..category..' '..actionpacket:get_targets()():get_actions()():get_message_id())
@@ -103,6 +100,8 @@ end)
 windower.register_event('lose buff', function(buff_id)
 	if buff_id == 461 then
 		count = 0
+		widgets.count.text = ''
+		widgets.hit.text = ''
 	end
 end)
 

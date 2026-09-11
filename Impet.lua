@@ -73,7 +73,7 @@ ActionPacket.open_listener(function(act)
 		-- log(windower.ffxi.get_mob_by_id(actionpacket:get_id()).name..' '..category..' '..actionpacket:get_targets()():get_actions()():get_message_id())
 		if T{'melee','weaponskill_finish'}:contains(category) then
 			local actor = actionpacket:get_id()
-			if windower.ffxi.get_mob_by_id(actor).name == 'Felicya' then
+			if windower.ffxi.get_mob_by_id(actor).name == 'Felicya' then--TODO, counter did not count
 				local target = actionpacket:get_targets()()
 				for action in target:get_actions() do
 					local message_id = action:get_message_id()

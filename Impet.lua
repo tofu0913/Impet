@@ -7,7 +7,7 @@ require('actions')
 require('logger')
 local texts = require('texts')
 local config = require('config')
-require('mylibs/utils')
+res = require('resources')
 
 function setup_text(text)
     text:bg_alpha(255)
@@ -52,6 +52,15 @@ function get_combo_color(count)
     local b = math.floor(255 - 255 * t)  -- 255 → 0
 
     return string.format('\\cs(%d,%d,%d)', r, g, b)
+end
+
+function hasBuff(buffname)
+    for i,v in pairs(windower.ffxi.get_player()['buffs']) do
+		if res.buffs[v].id ~= 580 and res.buffs[v] and res.buffs[v].ja == buffname then
+            return true
+        end
+    end
+    return false
 end
 
 ActionPacket.open_listener(function(act)

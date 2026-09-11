@@ -111,6 +111,12 @@ windower.register_event('lose buff', function(buff_id)
 	end
 end)
 
+windower.register_event('zone change', function(new, old)
+	count = 0
+	widgets.count.text = ''
+	widgets.hit.text = ''
+end)
+
 -- windower.register_event('gain buff', function(buff_id)
 	-- if buff_id == 461 then
 	-- end

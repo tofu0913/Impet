@@ -83,7 +83,7 @@ ActionPacket.open_listener(function(act)
 				if count >= 50 then
 					texts.size(widgets.count, 30)
 					texts.bold(widgets.count, true)
-					widgets.hit:pos(hit_pos_x+(count>99 and 40 or 35), hit_pos_y+22)
+					widgets.hit:pos(hit_pos_x+(count>99 and 45 or 35), hit_pos_y+22)
 					widgets.hit.text = 'HIT!!'
 					if count >= 100 then
 						texts.stroke_color(widgets.count, 255,20,20)
